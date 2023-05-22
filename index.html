@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Conditional Javascript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="col-md-5">
+          <div class="card border-0 shadow rounded p-4">
+            <div class="card-body text-center">
+              <p class="fw-semibold fs-5 mb-2">Masukkan Total Harga</p>
+              <p class="mb-3 text-secondary">Masukkan total harga dan hitung diskonnya</p>
+              <input class="form-control" required>
+              <br>
+              <button class="btn btn-primary px-4 rounded-0" onclick="hitung()">Hitung</button>
+            </div>
+            <div class="hasil card-body text-center d-none w-100">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="fw-semibold">Total</h5>
+                <h4 class="txtTotal"></h4>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="diskonnya">Jumlah</h5>
+                <h4 class="txtDiskon"></h4>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class=""></h5>
+                <h4 class="txtJumlah"></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      const cardHasil = document.querySelector(".hasil")
+      const total = document.querySelector("input")
+      const txtTotal = document.querySelector(".txtTotal")
+      const diskonnya = document.querySelector(".diskonnya")
+      const txtDiskon = document.querySelector(".txtDiskon")
+      const txtJumlah = document.querySelector(".txtJumlah")
+      let diskon = 0
+      function hitung() {
+        cardHasil.classList.remove("d-none")
+        txtTotal.textContent = "Rp. " + total.value
+        if (total.value >= 100000) {
+          diskon = 10
+          txtJumlah.textContent = "Rp. "+ (parseInt(total.value) - (parseInt(total.value) * diskon / 100))
+        } else if (total.value >= 50000 && total.value < 100000) {
+          diskon = 5
+          txtJumlah.textContent = "Rp. "+ (parseInt(total.value) - (parseInt(total.value) * diskon / 100))
+        }
+      }
+    </script>
+  </body>
+</html>
