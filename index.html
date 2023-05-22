@@ -56,6 +56,10 @@
           diskon = 5
           txtDiskon.textContent = "Rp. " + (total.value * diskon / 100)
           txtJumlah.textContent = "Rp. " + (parseInt(total.value) - (parseInt(total.value) * diskon / 100))
+        } else {
+          diskon = 0
+          txtDiskon.textContent = diskon
+          txtJumlah.textContent = "Rp. " + (parseInt(total.value) - (parseInt(total.value) * diskon / 100))
         }
       }
     </script>
