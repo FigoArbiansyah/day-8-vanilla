@@ -24,11 +24,11 @@
                 <h4 class="txtTotal"></h4>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <h5 class="diskonnya">Jumlah</h5>
+                <h5 class="diskonnya">Diskon</h5>
                 <h4 class="txtDiskon"></h4>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <h5 class=""></h5>
+                <h5 class="">Jumlah</h5>
                 <h4 class="txtJumlah"></h4>
               </div>
             </div>
@@ -50,9 +50,11 @@
         txtTotal.textContent = "Rp. " + total.value
         if (total.value >= 100000) {
           diskon = 10
+          txtDiskon.textContent = (total.value * diskon / 100)
           txtJumlah.textContent = "Rp. "+ (parseInt(total.value) - (parseInt(total.value) * diskon / 100))
         } else if (total.value >= 50000 && total.value < 100000) {
           diskon = 5
+          txtDiskon.textContent = (total.value * diskon / 100)
           txtJumlah.textContent = "Rp. "+ (parseInt(total.value) - (parseInt(total.value) * diskon / 100))
         }
       }
